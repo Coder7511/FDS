@@ -1,0 +1,76 @@
+groupA=['Raj','Amee','Ravi','Anurag']
+groupB=['Anuksha','Shreya','Anurag']
+groupC=['Krishna','Avdoot','Anuksha','Anurag']
+
+lena=len(groupA)
+lenb=len(groupB)
+lenc=len(groupC)
+
+print("list of student who play cricket and badminton:")
+resultlistCB=[]
+for i in range(lenb):
+    for var in range(lena):
+        if(groupB[i]==groupA[var]):
+            resultlistCB.append(groupB[i])
+            break
+print(resultlistCB)
+
+print("list of student who play either cricket or badminton but not both:")
+resultlistCBN=[]
+flag=0
+if lena<lenb:
+    for i in range(lenb):
+        for var in range(lena):
+            if(groupB[i]==groupA[var]):
+               flag=1
+               break
+        if(flag==0):
+                resultlistCBN.append(groupB[i])
+        flag=0
+else:
+    for i in range(lena):
+        for var in range(lenb):
+            if(groupA[i]==groupB[var]):
+               flag=1
+               break
+        if(flag==0):
+                resultlistCBN.append(groupA[i])
+        flag=0
+print(resultlistCBN)
+
+print("list of student who play neither cricket nor badminton:")
+resultlistCBNF=[]
+for i in range(lenc):
+    for var in range(lena):
+        if(groupC[i]==groupA[var]):
+           flag=1
+           break
+    for var in range(lenb):
+        if(groupC[i]==groupB[var]):
+            flag=1
+            break
+    if(flag==0):
+        resultlistCBNF.append(groupC[i])
+    flag=0
+print(resultlistCBNF)
+
+print("list of student who play cricket and footbal but not badminton:")
+resultlistCF=[]
+for i in range(lenc):
+    for var in range(lena):
+        if(groupC[i]==groupA[var]):
+            resultlistCF.append(groupC[i])
+            break
+
+resultlistNB=[]
+flag=0
+lencf=len(resultlistCF)
+for i in range(lencf):
+    for var in range(lenb):
+        if(resultlistCF[i]==groupB[var]):
+            flag=1
+            break
+    if(flag==0):
+        resultlistNB.append(resultlistCF[i])
+    flag=0
+print(resultlistNB)
